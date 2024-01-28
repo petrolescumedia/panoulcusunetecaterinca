@@ -122,7 +122,7 @@
             var expireDate = new Date(user.expire);
 
             if (currentDate < expireDate) {
-              if (user.subscription_type === "Pe Sistem" || user.subscription_type === "Pe Smecherie") {
+              if (user.subscription_type === "Pe Sistem" || user.subscription_type === "Pe Buget") {
                 window.location.href = 'home.html'; // Redirect to home.html
               } else {
                 displayCallout('Nu ai abonamentul necesar pentru a putea accesa TuneScape! Te rugam sa achizitionezi un plan tarifar mai avansat!');

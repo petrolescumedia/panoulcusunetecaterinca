@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Default font for the entire page */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.soundboard {
+  max-width: 92%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--row-spacing, 20px); /* Adjustable distance between rows */
+  gap: var(--button-spacing, 20px); /* Adjustable distance between buttons */
+}
+
+/* Apply the custom font only to the buttons with the sound-button class */
+.sound-button {
+  flex: 1;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #26619C;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  font: buton;
+  font-family: 'buton', Arial, sans-serif; /* Use the custom font for the buttons */
+  transition: transform 0.s ease; /* Added transition for the transform property */
+
+  /* Centering the text and image in the button */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image styling within the button */
+.sound-button img {
+  max-width: var(--max-image-size, 300px); /* Adjustable maximum size of the image */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.sound-button:active {
+  transform: scale(0.95); /* Scale down the button on active state */
+}
+
+.controls {
+  position: fixed;
+  display: flex;
+  bottom: 20px;
+}
+
+.stop-button {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  z-index: 1;
+  transition: transform 0.1s ease; /* Added transition for the transform property */
+}
+
+.stop-button:active {
+  transform: scale(0.95); /* Scale down the button on active state */
+}
+
+.control-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.control-icon {
+  width: 60px; /* Set the size of the control icons */
+  height: 60px;
+}
+
+/* Additional Styling */
+.controls .control-button:not(:last-child) {
+  margin-right: 10px; /* Adjustable distance between control buttons */
+}
+
+/* Style for sound sections */
+.section {
+    margin: 0px auto;
+    text-align: center;
+}
+
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style for the bottom navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #348ce3;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Style for individual navigation items */
+.nav-item {
+    padding: 10px; /* Adjust as needed */
+    margin: 0 5px; /* Adjust spacing between items */
+    display: flex;
+    align-items: center;
+    transition: transform var(--animation-duration, 0.2s) ease-in-out;
+}
+
+.nav-item:hover {
+    transform: scale(var(--animation-scale, 1.1));
+}
+
+.nav-item img {
+    max-width: 35px;
+    height: auto;
+}
+
+/* Font Face for the custom font */
+@font-face {
+  font-family: 'buton'; /* Specify the name for your custom font family */
+  src: url('fonts/buton.ttf') format('truetype'); /* Replace 'path/to/your/font.ttf' with the actual path to your .ttf file */
+}
+
+
+
+/* Font Face for the custom font */
+@font-face {
+  font-family: 'buton'; /* Specify the name for your custom font family */
+  src: url('fonts/buton.ttf') format('truetype'); /* Replace 'path/to/your/font.ttf' with the actual path to your .ttf file */
+}
+
+/* Remove focus outline on all elements */
+*:focus {
+  outline: none;
+}
+

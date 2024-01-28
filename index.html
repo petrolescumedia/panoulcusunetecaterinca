@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #0096FF;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      bottom: 20px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .cancelbtn {
+      width: 100%;
+      padding: 10px 0;
+      background-color: #f44336;
+    }
+
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    .container {
+      padding: 16px;
+      position: relative;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    .callout {
+      color: white;
+      background-color: #f44336;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 8px;
+      text-align: center;
+      display: none;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 600px) {
+      img.avatar {
+        width: 70%;
+      }
+
+      .cancelbtn {
+        padding: 10px 20px;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      button,
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="loginForm">
+    <div class="container">
+      <div class="imgcontainer">
+        <img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="Avatar" class="avatar">
+      </div>
+      <label for="uname"><b>Nume de Utilizator</b></label>
+      <input type="text" placeholder="Cum te cheama melomanule?" id="uname" required>
+
+      <label for="psw"><b>Parola</b></label>
+      <input type="password" placeholder="Mai stii ce parola ai?" id="psw" required>
+      <button type="submit">Autentificare</button>
+      <div class="callout" id="errorCallout"></div>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var username = document.getElementById('uname').value;
+      var password = document.getElementById('psw').value;
+
+      fetch('https://petrolescumedia.github.io/jeffit/DATA/parole.json')
+        .then(response => response.json())
+        .then(data => {
+          var user = data.users.find(user => user.username === username && user.password === password);
+          if (user) {
+            var currentDate = new Date();
+            var expireDate = new Date(user.expire);
+
+            if (currentDate < expireDate) {
+              if (user.subscription_type === "Pe Sistem" || user.subscription_type === "Pe Smecherie") {
+                window.location.href = 'home.html'; // Redirect to home.html
+              } else {
+                displayCallout('Nu ai abonamentul necesar pentru a putea accesa TuneScape! Te rugam sa achizitionezi un plan tarifar mai avansat!');
+              }
+            } else {
+              displayCallout('Abonamentul tau a expirat!');
+            }
+          } else {
+            displayCallout('Nume de utilizator sau parola invalida!');
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    function displayCallout(message) {
+      var calloutElement = document.getElementById('errorCallout');
+      calloutElement.innerText = message;
+      calloutElement.style.display = 'block';
+    }
+  </script>
+
+</body>
+
+</html>

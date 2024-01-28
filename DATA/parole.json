@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "password",
+      "expire": "6969-01-01",
+      "subscription_type": "admin"
+    },
+    {
+      "username": "user1",
+      "password": "password1",
+      "expire": "2024-01-25",
+      "subscription_type": "Pe Buget"
+    },
+    {
+      "username": "user2",
+      "password": "password2",
+      "expire": "2024-01-30",
+      "subscription_type": "Pe Smecherie"
+    }
+  ]
+}
+
+

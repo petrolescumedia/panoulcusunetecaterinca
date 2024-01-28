@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Koulen' rel='stylesheet'>
+  <link rel="stylesheet" href="css/topnav.css">
+  <link rel="stylesheet" href="css/soundboard.css">
+</head>
+<style>
+/* Font Face for the custom font */
+@font-face {
+  font-family: 'buton'; /* Specify the name for your custom font family */
+  src: url('fonts/buton.ttf') format('truetype'); /* Replace 'path/to/your/font.ttf' with the actual path to your .ttf file */
+}
+
+h3 {
+    font-family: 'Koulen';font-size: 30px;
+	text-align: center
+}
+
+/* Image styling within the button */
+.sound-button img {
+  max-width: var(--max-image-size, 30px); /* Adjustable maximum size of the image */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Centering the text and image in the button */
+.sound-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff; /* Set the background color to white */
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 9999; /* Ensure it appears above all other elements */
+}
+
+.loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: #26619C;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Add this CSS to hide page content while the loader is active */
+.no-scroll {
+    overflow: hidden;
+}
+
+</style>
+<body>
+  <div class="loader"></div>
+  <div class="soundboard">
+	<div id="sounds" class="section">
+    <h3><i class="fa-solid fa-volume-high fa-shake"></i> Random Sound Effects <i class="fa-solid fa-ear-listen fa-shake"></i></h3>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/1.mp3">Allah Akbar</button>
+      <button class="sound-button" data-sound-src="sounds/2.mp3">Alerta</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/3.mp3">Bruh Sound Effect</button>
+      <button class="sound-button" data-sound-src="sounds/60.mp3">
+        <img src="https://media.tenor.com/IgqQta2JOeMAAAAj/skull-skull-emoji.gif" alt="Icon 1">
+      </button>	  
+      <button class="sound-button" data-sound-src="sounds/4.mp3">Cave 1</button>
+    </div>
+	<div class="row">
+      <button class="sound-button" data-sound-src="sounds/5.mp3">
+        <img src="https://i.imgur.com/GGWtI9f.png" alt="Icon 1">
+		Ce Spun Romanii Corect
+      </button>
+	  
+      <button class="sound-button" data-sound-src="sounds/6.mp3">
+        <img src="https://i.imgur.com/NNRUdBO.png" alt="Icon 1">
+		Ce Spun Romanii Gresit
+      </button>
+	 </div>
+   <div class="row">
+    <button class="sound-button" data-sound-src="sounds/61.mp3">Los Pingüinos me la van a Mascar</button>
+  </div>
+   <div class="row">
+    <button class="sound-button" data-sound-src="sounds/62.mp3">Kawasaki</button>
+    <button class="sound-button" data-sound-src="sounds/63.mp3">Cago</button>
+  </div>
+  <div class="row">
+    <button class="sound-button" data-sound-src="sounds/64.mp3">Kriko</button>
+    <button class="sound-button" data-sound-src="sounds/65.mp3">Estriper</button>
+  </div>
+  <div class="row">
+    <button class="sound-button" data-sound-src="sounds/66.mp3">Los Pingüinos me la van a Mascar FULL</button>
+  </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/7.mp3">Clash Royale King Laught</button>
+      <button class="sound-button" data-sound-src="sounds/8.mp3">Clas Royale Opening</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/9.mp3">Cufureala</button>
+      <button class="sound-button" data-sound-src="sounds/10.mp3">DUN</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/11.mp3"><img src="https://i.imgur.com/4ZL3Jiw.png" alt="Icon 1"></button>
+      <button class="sound-button" data-sound-src="sounds/12.mp3"><img src="https://i.imgur.com/a5G9ZpC.png" alt="Icon 1"></button>
+	  <button class="sound-button" data-sound-src="sounds/19.mp3"><img src="https://i.imgur.com/29soV6X.png" alt="Icon 1"></button>
+	  <button class="sound-button" data-sound-src="sounds/58.mp3"><img src="https://i.imgur.com/hYcAoMo.png" alt="Icon 1"></button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/13.mp3">GTA Mission Passed</button>
+      <button class="sound-button" data-sound-src="sounds/14.mp3">Guta Drujba</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/15.mp3">Part</button>
+      <button class="sound-button" data-sound-src="sounds/16.mp3">Taco Bell</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/67.mp3">Casa 4</button>
+      <button class="sound-button" data-sound-src="sounds/68.mp3">Silent Hill</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/70.mp3">Freddy Rage Quit</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/17.mp3">Waterphone</button>
+      <button class="sound-button" data-sound-src="sounds/18.mp3">Zarzavat</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/31.mp3">Glaggleland Theme</button>
+	    <button class="sound-button" data-sound-src="sounds/59.mp3">Metal Falling Pipe</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/20.mp3">
+        <img src="https://i.imgur.com/2wgTZFd.png" alt="Icon 1">
+      </button>
+	  
+      <button class="sound-button" data-sound-src="sounds/21.mp3">
+        <img src="https://i.imgur.com/GSMNrvn.png" alt="Icon 1">
+      </button>
+	  
+      <button class="sound-button" data-sound-src="sounds/32.wav">
+        <img src="https://cdn-icons-png.flaticon.com/128/2684/2684173.png" alt="Icon 1">
+      </button>
+	  
+      <button class="sound-button" data-sound-src="sounds/22.mp3">
+        <img src="https://i.imgur.com/PCUKNf4.png" alt="Icon 1">
+      </button>
+	  
+      <button class="sound-button" data-sound-src="sounds/23.mp3">
+        <img src="https://i.imgur.com/LKqe568.png" alt="Icon 1">
+      </button>
+    </div>
+	
+	
+	<div id="RO" class="section">
+	<h3><i class="fa-solid fa-earth-europe fa-shake"></i> Romanian Shitposts <i class="fa-solid fa-poo-storm fa-shake"></i></h3>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/24.mp3">
+		<img src="https://i.imgur.com/KH8LjF0.png" alt="Icon 1">
+	  Extraordinar
+	  </button>
+      <button class="sound-button" data-sound-src="sounds/25.mp3">
+		<img src="https://i.imgur.com/KH8LjF0.png" alt="Icon 1">
+	  Clarvazator
+	  </button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/27.mp3">
+		<img src="https://i.imgur.com/KH8LjF0.png" alt="Icon 1">
+	  Foarte interesant
+	  </button>
+      <button class="sound-button" data-sound-src="sounds/26.mp3">
+		<img src="https://i.imgur.com/KH8LjF0.png" alt="Icon 1">
+	  Disparitie DEL
+	  </button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/28.mp3">
+		<img src="https://i.imgur.com/KH8LjF0.png" alt="Icon 1">
+	  Fantastic
+	  </button>
+      <button class="sound-button" data-sound-src="sounds/29.mp3">
+		<img src="https://i.imgur.com/KH8LjF0.png" alt="Icon 1">
+	  Oda Branza Del
+	  </button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/30.mp3">
+		<img src="https://i.imgur.com/KH8LjF0.png" alt="Icon 1">
+	  Formidabil
+	  </button>
+	  <button class="sound-button" data-sound-src="sounds/57.mp3">
+	  <img src="https://media.tenor.com/Q69ITzEJ9b8AAAAi/toilet-spin.gif" alt="Icon 1">
+	  Regina Noptii</button>
+    </div>
+ </div>
+ </div>
+  
+	<div id="vericu" class="section">
+	<h3><i class="fa-solid fa-car fa-shake"></i> Vericu <i class="fa-solid fa-car-burst fa-shake"></i></h3>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/53.mp3">Adusa cu sacrificii in tara</button>
+    </div>
+	<div class="row">
+      <button class="sound-button" data-sound-src="sounds/46.mp3">
+        <img src="https://i.imgur.com/p7GsEjk.png" alt="Icon 1">
+		Apometre
+      </button>
+	  
+      <button class="sound-button" data-sound-src="sounds/45.mp3">
+        <img src="https://i.imgur.com/UD8k6Le.png" alt="Icon 1">
+		Aragaze
+      </button>
+
+      <button class="sound-button" data-sound-src="sounds/69.mp3">
+        <img src="https://cdn-icons-png.flaticon.com/128/3061/3061718.png" alt="Icon 1">
+		Camion
+      </button>
+	 </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/47.mp3">Audi Nesimtit</button>
+      <button class="sound-button" data-sound-src="sounds/36.mp3">Adu-o la service</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/54.mp3">Adu-o la service ca sa o facem ca in anunt</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/28.mp3">Aragaz pe Butelie</button>
+      <button class="sound-button" data-sound-src="sounds/41.mp3">Butelia</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/55.mp3">Ba vere ia stai asa ca avem o problema</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/42.mp3">Calc-o varule</button>
+      <button class="sound-button" data-sound-src="sounds/48.mp3">Ce a fost aia varule?</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/50.mp3">E abia la inceput de drum</button>
+	    <button class="sound-button" data-sound-src="sounds/37.mp3">E bomba masina varule</button>
+      <button class="sound-button" data-sound-src="sounds/40.mp3">
+        <img src="https://i.imgur.com/NXb2EVx.png" alt="Icon 1">
+      </button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/34.mp3">
+        <img src="https://i.imgur.com/o8D8yml.png" alt="Icon 1">
+		E bomba masina varule nu necesita investitii minim 5 ani
+      </button>
+	</div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/33.mp3">Ia zi vericule ce ii facem?</button>
+      <button class="sound-button" data-sound-src="sounds/43.mp3">Ia vezi acum</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/52.mp3">Lant de drujba</button>
+      <button class="sound-button" data-sound-src="sounds/56.mp3">Mi-am luat bemvreu nesimtit si vreau sa il verifici</button>
+    </div>
+    <div class="row">   
+      <button class="sound-button" data-sound-src="sounds/37.mp3">Fara investitii minim 5 ani</button>
+    </div>
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/39.mp3">power</button>
+      <button class="sound-button" data-sound-src="sounds/51.mp3">talent</button>
+    </div>	
+    <div class="row">
+      <button class="sound-button" data-sound-src="sounds/44.mp3">
+        <img src="https://i.imgur.com/R8GuYyK.png" alt="Icon 1">
+		Trage ca un marfar
+      </button>
+      <button class="sound-button" data-sound-src="sounds/49.mp3">Te tracteaza varul</button>
+	</div>
+  <br>
+  </div>
+ </div>
+	<div id="#chefi" class="section">
+	<h1>Chefi la Cutite</h1>
+	</div>
+    <nav class="bottom-nav">
+        <div class="nav-item">
+            <a href="#sounds"><img src="https://i.imgur.com/BiDnlq3.png" alt="Sound Effects"></a>
+        </div>
+        <div class="nav-item">
+            <a href="#RO"><img src="https://cdn-icons-png.flaticon.com/128/5866/5866586.png" alt="Romanian"></a>
+        </div>
+        <div class="nav-item">
+            <a href="#menu"><img src="https://cdn-icons-png.flaticon.com/128/25/25694.png" alt="Menu"></a>
+        </div>
+        <div class="nav-item">
+            <a href="#vericu"><img src="https://cdn-icons-png.flaticon.com/128/89/89102.png" alt="Vericu"></a>
+        </div>
+        <div class="nav-item">
+            <a href="#chefi"><img src="https://cdn-icons-png.flaticon.com/128/719/719915.png" alt="chefi"></a>
+        </div>
+
+        <!-- Add more nav items as needed -->
+    </nav>
+
+  <div class="controls">
+    <button class="control-button stop-button">
+      <img src="https://i.imgur.com/ZcvqAmH.png" alt="Stop" class="control-icon">
+    </button>
+  </div>
+
+  <script src="js/topnav.js"></script>
+  <script src="js/soundboard.js"></script>
+  <script src="https://kit.fontawesome.com/897d001a8e.js" crossorigin="anonymous"></script>
+</body>
+<script>
+  window.addEventListener("load", () => {
+      const loader = document.querySelector(".loader");
+      const body = document.body;
+
+      loader.classList.add("loader--hidden");
+      body.classList.remove("no-scroll"); // Remove the "no-scroll" class to reveal content
+
+      loader.addEventListener("transitionend", () => {
+          body.removeChild(loader);
+      });
+  });
+</script>  
+</html>
